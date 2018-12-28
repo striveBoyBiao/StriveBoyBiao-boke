@@ -19,22 +19,22 @@ public class PageInfo<T> {
 	//页的数量
 	private int pageCount;
 	//每页数据
-	private List<T> pageDate;
+	private List<T> pageData;
 	//查询的数量
 	private Integer queryCount;
 	private String type;
 	private String state;
 	private String mohu;
 	//最新文章
-	private List<T> newsDate;
+	private List<T> newsData;
 	//排行榜
-	private List<T> rankDate;
+	private List<T> rankData;
 	//相关文档
-	private List<T> relateDate;
+	private List<T> relateData;
 	/**上一篇*/
-	private T onDate;
+	private T onData;
 	/**下一篇*/
-	private T underDate;
+	private T underData;
 	
 
 	public PageInfo(String pageNo) {
@@ -43,28 +43,20 @@ public class PageInfo<T> {
 		
 	}
 
-	public T getOnDate() {
-		return onDate;
+	public T getOnData() {
+		return onData;
 	}
 
-	public void setOnDate(T onDate) {
-		this.onDate = onDate;
+	public void setOnData(T onData) {
+		this.onData = onData;
 	}
 
-	public T getUnderDate() {
-		return underDate;
+	public T getUnderData() {
+		return underData;
 	}
 
-	public void setUnderDate(T underDate) {
-		this.underDate = underDate;
-	}
-
-	public List<T> getRelateDate() {
-		return relateDate;
-	}
-
-	public void setRelateDate(List<T> relateDate) {
-		this.relateDate = relateDate;
+	public void setUnderData(T underData) {
+		this.underData = underData;
 	}
 
 	public String getState() {
@@ -121,12 +113,12 @@ public class PageInfo<T> {
 		this.pageCount = pageCount;
 	}
 
-	public List<T> getPageDate() {
-		return pageDate;
+	public List<T> getPageData() {
+		return pageData;
 	}
 
-	public void setPageDate(List<T> pageDate) {
-		this.pageDate = pageDate;
+	public void setPageData(List<T> pageData) {
+		this.pageData = pageData;
 	}
 
 	public int getPageSize() {
@@ -153,19 +145,27 @@ public class PageInfo<T> {
 		this.queryCount = queryCount;
 	}
 
-	public List<T> getNewsDate() {
-		return newsDate;
+	public List<T> getNewsData() {
+		return newsData;
 	}
 
-	public void setNewsDate(List<T> newsDate) {
-		this.newsDate = newsDate;
+	public void setNewsData(List<T> newsData) {
+		this.newsData = newsData;
 	}
 
-	public List<T> getRankDate() {
-		return rankDate;
+	public List<T> getRankData() {
+		return rankData;
 	}
 
-	public void setRankDate(List<T> rankDate) {
-		this.rankDate = rankDate;
+	public void setRankData(List<T> rankData) {
+		this.rankData = rankData;
+	}
+
+	public List<T> getRelateData() {
+		return relateData;
+	}
+
+	public void setRelateData(List<T> relateData) {
+		this.relateData = relateData;
 	}
 }

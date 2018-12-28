@@ -26,7 +26,7 @@
         select count(*)
         from blog_content
         where 1=1
-        <if test="type==1">and categories in ('10','11','12','13','14','15','16','17','18','19','20','21','1')</if>
+        <if test="type==1">and categories in ('10','11','12','13','14','15','16','17','18','19','20','21')</if>
         <if test="type==3">and categories in ('16','17','18','19','20','21')</if>
         <if test="type==5">and categories in ('10','11','12','13','14','15')</if>
     </select>
@@ -43,7 +43,7 @@
         from blog_content bc
         left join sys_dict sd on sd.type='blog_type' and sd.value=bc.categories
         where 1=1
-        <if test="type==1">and bc.categories in ('10','11','12','13','14','15','16','17','18','19','20','21','1') order by bc.gtm_modified</if>
+        <if test="type==1">and bc.categories in ('10','11','12','13','14','15','16','17','18','19','20','21') order by bc.gtm_modified</if>
         <if test="type==3">and bc.categories in ('16','17','18','19','20','21')</if>
         <if test="type==5">and bc.categories in ('10','11','12','13','14','15')</if>
         limit #{pagebegin},#{pagesize}

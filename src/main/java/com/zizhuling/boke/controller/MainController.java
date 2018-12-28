@@ -115,7 +115,7 @@ public class MainController {
     @ResponseBody
     @RequestMapping("/main/findIndex")
     public PageInfo findIndex(HttpServletRequest request){
-        Map<String,Object> map=new HashMap<>();
+        Map<String,Object> map=new HashMap<String,Object>();
         map.put("type","1");
         map.put("pageNo",request.getParameter("pageNo"));
         PageInfo list=mainService.findLife(map);
@@ -128,17 +128,17 @@ public class MainController {
      */
     @RequestMapping("/main/findIndexDetails")
     public String findIndexDetails(HttpServletRequest request,Model model){
-        Map<String,Object> map=new HashMap<>();
+        Map<String,Object> map=new HashMap<String,Object>();
         map.put("cid",request.getParameter("cid"));
         map.put("type","1");
         PageInfo pageInfo=mainService.findlifeDetails(map);
-        model.addAttribute("list",pageInfo.getPageDate().get(0));
-        model.addAttribute("newsdate",pageInfo.getNewsDate());
-        model.addAttribute("rankdate",pageInfo.getRankDate());
-        model.addAttribute("relatedate",pageInfo.getRelateDate());
-        model.addAttribute("ondate",pageInfo.getOnDate());
-        model.addAttribute("underDate",pageInfo.getUnderDate());
-        return "lifeDetails";
+        model.addAttribute("list",pageInfo.getPageData().get(0));
+        model.addAttribute("newsdate",pageInfo.getNewsData());
+        model.addAttribute("rankdate",pageInfo.getRankData());
+        model.addAttribute("relatedate",pageInfo.getRelateData());
+        model.addAttribute("ondate",pageInfo.getOnData());
+        model.addAttribute("underDate",pageInfo.getUnderData());
+        return "blog/article";
     }
 
 
@@ -151,7 +151,7 @@ public class MainController {
     @ResponseBody
     @RequestMapping("/main/findLife")
     public PageInfo findLife(HttpServletRequest request){
-        Map<String,Object> map=new HashMap<>();
+        Map<String,Object> map=new HashMap<String,Object>();
         map.put("type","3");
         map.put("pageNo",request.getParameter("pageNo"));
         PageInfo list=mainService.findLife(map);
@@ -163,17 +163,17 @@ public class MainController {
      */
     @RequestMapping("/main/findlifeDetails")
     public String findlifeDetails(HttpServletRequest request,Model model){
-        Map<String,Object> map=new HashMap<>();
+        Map<String,Object> map=new HashMap<String,Object>();
         map.put("cid",request.getParameter("cid"));
         map.put("type","3");
         PageInfo pageInfo=mainService.findlifeDetails(map);
-        model.addAttribute("list",pageInfo.getPageDate().get(0));
-        model.addAttribute("newsdate",pageInfo.getNewsDate());
-        model.addAttribute("rankdate",pageInfo.getRankDate());
-        model.addAttribute("relatedate",pageInfo.getRelateDate());
-        model.addAttribute("ondate",pageInfo.getOnDate());
-        model.addAttribute("underDate",pageInfo.getUnderDate());
-        return "lifeDetails";
+        model.addAttribute("list",pageInfo.getPageData().get(0));
+        model.addAttribute("newsdate",pageInfo.getNewsData());
+        model.addAttribute("rankdate",pageInfo.getRankData());
+        model.addAttribute("relatedate",pageInfo.getRelateData());
+        model.addAttribute("ondate",pageInfo.getOnData());
+        model.addAttribute("underDate",pageInfo.getUnderData());
+        return "blog/article";
     }
 
     /**
@@ -183,7 +183,7 @@ public class MainController {
     @ResponseBody
     @RequestMapping("/main/findDoing")
     public PageInfo findDoing(HttpServletRequest request){
-        Map<String,Object> map=new HashMap<>();
+        Map<String,Object> map=new HashMap<String,Object>();
         map.put("pageNo",request.getParameter("pageNo"));
         PageInfo list=mainService.findDoing(map);
         return list;
@@ -200,7 +200,7 @@ public class MainController {
     @ResponseBody
     @RequestMapping("/main/findLearn")
     public PageInfo findLearn(HttpServletRequest request){
-        Map<String,Object> map=new HashMap<>();
+        Map<String,Object> map=new HashMap<String,Object>();
         map.put("type","5");
         map.put("pageNo",request.getParameter("pageNo"));
         map.put("search",request.getParameter("search"));
@@ -213,17 +213,17 @@ public class MainController {
      */
     @RequestMapping("/main/findLearnDetails")
     public String findLearnDetails(HttpServletRequest request,Model model){
-        Map<String,Object> map=new HashMap<>();
+        Map<String,Object> map=new HashMap<String,Object>();
         map.put("cid",request.getParameter("cid"));
         map.put("type","5");
         PageInfo pageInfo=mainService.findlifeDetails(map);
-        model.addAttribute("list",pageInfo.getPageDate().get(0));
-        model.addAttribute("newsdate",pageInfo.getNewsDate());
-        model.addAttribute("rankdate",pageInfo.getRankDate());
-        model.addAttribute("relatedate",pageInfo.getRelateDate());
-        model.addAttribute("ondate",pageInfo.getOnDate());
-        model.addAttribute("underDate",pageInfo.getUnderDate());
-        return "learnDetails";
+        model.addAttribute("list",pageInfo.getPageData().get(0));
+        model.addAttribute("newsdate",pageInfo.getNewsData());
+        model.addAttribute("rankdate",pageInfo.getRankData());
+        model.addAttribute("relatedate",pageInfo.getRelateData());
+        model.addAttribute("ondate",pageInfo.getOnData());
+        model.addAttribute("underDate",pageInfo.getUnderData());
+        return "blog/article";
     }
 
 

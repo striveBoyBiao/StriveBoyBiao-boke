@@ -48,7 +48,7 @@ public class MainServiceImpl implements MainService{
         }
         pageInfo.setPageCount(pageCount);
         List<Map<String,Object>> list=contentDao.findDoing(map);
-        pageInfo.setPageDate(list);
+        pageInfo.setPageData(list);
         return pageInfo;
     }
 
@@ -75,11 +75,11 @@ public class MainServiceImpl implements MainService{
         map.put("newslength",6);
         map.put("rank",0);
         map.put("ranklength",6);
-        List<Map<String,Object>> newsDate=contentDao.findLifeNewsDate(map);
-        List<Map<String,Object>> rankDate=contentDao.findLifeRankDate(map);
-        pageInfo.setPageDate(list);
-        pageInfo.setNewsDate(newsDate);
-        pageInfo.setRankDate(rankDate);
+        List<Map<String,Object>> newsData=contentDao.findLifeNewsDate(map);
+        List<Map<String,Object>> rankData=contentDao.findLifeRankDate(map);
+        pageInfo.setPageData(list);
+        pageInfo.setNewsData(newsData);
+        pageInfo.setRankData(rankData);
         return pageInfo;
     }
     /**
@@ -96,18 +96,18 @@ public class MainServiceImpl implements MainService{
         /*修改阅读量*/
         contentDao.updateClickRate(map);
         List<Map<String,Object>> list=contentDao.findlifeDetails(map);
-        List<Map<String,Object>> newsDate=contentDao.findLifeNewsDate(map);
-        List<Map<String,Object>> rankDate=contentDao.findLifeRankDate(map);
+        List<Map<String,Object>> newsData=contentDao.findLifeNewsDate(map);
+        List<Map<String,Object>> rankData=contentDao.findLifeRankDate(map);
         map.put("gjzc",list.get(0).get("gjzc"));
-        List<Map<String,Object>> relateDate=contentDao.findLifeRelateDate(map);
-        Map<String,Object> onDate=contentDao.findLifeOnDate(map);
-        Map<String,Object> underDate=contentDao.findLifeUnderDate(map);
-        pageInfo.setOnDate(onDate);
-        pageInfo.setUnderDate(underDate);
-        pageInfo.setRelateDate(relateDate);
-        pageInfo.setPageDate(list);
-        pageInfo.setNewsDate(newsDate);
-        pageInfo.setRankDate(rankDate);
+        List<Map<String,Object>> relateData=contentDao.findLifeRelateDate(map);
+        Map<String,Object> onData=contentDao.findLifeOnDate(map);
+        Map<String,Object> underData=contentDao.findLifeUnderDate(map);
+        pageInfo.setOnData(onData);
+        pageInfo.setUnderData(underData);
+        pageInfo.setRelateData(relateData);
+        pageInfo.setPageData(list);
+        pageInfo.setNewsData(newsData);
+        pageInfo.setRankData(rankData);
         return pageInfo;
     }
 
