@@ -149,25 +149,18 @@
           <artifactId>spring-boot-starter-activemq</artifactId>
       </dependency>
 
-      <!-- shiro spring. -->
+      <!--工具包-->
       <dependency>
-          <groupId>org.apache.shiro</groupId>
-          <artifactId>shiro-core</artifactId>
-          <version>1.2.2</version>
+          <groupId>org.apache.commons</groupId>
+          <artifactId>commons-lang3</artifactId>
+          <version>3.6</version>
       </dependency>
+      <!--map包-->
       <dependency>
-          <groupId>org.apache.shiro</groupId>
-          <artifactId>shiro-spring</artifactId>
-          <version>1.2.2</version>
+          <groupId>commons-collections</groupId>
+          <artifactId>commons-collections</artifactId>
+          <version>3.2.2</version>
       </dependency>
-      <!-- shiro ehcache -->
-      <dependency>
-          <groupId>org.apache.shiro</groupId>
-          <artifactId>shiro-ehcache</artifactId>
-          <version>1.2.2</version>
-      </dependency>
-
-
 
   </dependencies>
   <build>
