@@ -1,6 +1,7 @@
 package com.zizhuling.boke.service.impl;
 
 import com.zizhuling.boke.dao.ContentDao;
+import com.zizhuling.boke.utils.Constants;
 import com.zizhuling.boke.utils.PageInfo;
 import com.zizhuling.boke.service.MainService;
 import org.apache.commons.lang3.StringUtils;
@@ -10,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -90,9 +92,11 @@ public class MainServiceImpl implements MainService{
     public PageInfo findlifeDetails(Map<String, Object> map) {
         PageInfo pageInfo=new PageInfo("1");
         map.put("news",0);
-        map.put("newslength",8);
+        map.put("newslength",10);
         map.put("rank",0);
-        map.put("ranklength",5);
+        map.put("ranklength",6);
+        map.put("relate",0);
+        map.put("relatelength",9);
         /*修改阅读量*/
         contentDao.updateClickRate(map);
         List<Map<String,Object>> list=contentDao.findlifeDetails(map);
@@ -102,6 +106,26 @@ public class MainServiceImpl implements MainService{
         List<Map<String,Object>> relateData=contentDao.findLifeRelateDate(map);
         Map<String,Object> onData=contentDao.findLifeOnDate(map);
         Map<String,Object> underData=contentDao.findLifeUnderDate(map);
+        /*处理thymeleaf空数据报错*/
+        if (onData==null){
+            onData=new HashMap<String,Object>();
+            onData.put("cid","");
+            onData.put("title","");
+        }
+        if (underData==null){
+            underData=new HashMap<String,Object>();
+            underData.put("cid","");
+            underData.put("title","");
+        }
+        for(Map<String,Object> temp:list){
+            if(Integer.valueOf(temp.get("categories").toString())> Constants.INT_FIFTEEN){
+                temp.put("module","慢生活");
+                temp.put("modulepath",Constants.MODULE_PATH_ONE);
+            }else{
+                temp.put("module","学无止境");
+                temp.put("modulepath",Constants.MODULE_PATH_TWO);
+            };
+        }
         pageInfo.setOnData(onData);
         pageInfo.setUnderData(underData);
         pageInfo.setRelateData(relateData);

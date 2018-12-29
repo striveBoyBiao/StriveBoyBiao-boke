@@ -133,11 +133,11 @@ public class MainController {
         map.put("type","1");
         PageInfo pageInfo=mainService.findlifeDetails(map);
         model.addAttribute("list",pageInfo.getPageData().get(0));
-        model.addAttribute("newsdate",pageInfo.getNewsData());
-        model.addAttribute("rankdate",pageInfo.getRankData());
-        model.addAttribute("relatedate",pageInfo.getRelateData());
-        model.addAttribute("ondate",pageInfo.getOnData());
-        model.addAttribute("underDate",pageInfo.getUnderData());
+        model.addAttribute("newsdata",pageInfo.getNewsData());
+        model.addAttribute("rankdata",pageInfo.getRankData());
+        model.addAttribute("relatedata",pageInfo.getRelateData());
+        model.addAttribute("ondata",pageInfo.getOnData());
+        model.addAttribute("underData",pageInfo.getUnderData());
         return "blog/article";
     }
 
@@ -168,11 +168,11 @@ public class MainController {
         map.put("type","3");
         PageInfo pageInfo=mainService.findlifeDetails(map);
         model.addAttribute("list",pageInfo.getPageData().get(0));
-        model.addAttribute("newsdate",pageInfo.getNewsData());
-        model.addAttribute("rankdate",pageInfo.getRankData());
-        model.addAttribute("relatedate",pageInfo.getRelateData());
-        model.addAttribute("ondate",pageInfo.getOnData());
-        model.addAttribute("underDate",pageInfo.getUnderData());
+        model.addAttribute("newsdata",pageInfo.getNewsData());
+        model.addAttribute("rankdata",pageInfo.getRankData());
+        model.addAttribute("relatedata",pageInfo.getRelateData());
+        model.addAttribute("ondata",pageInfo.getOnData());
+        model.addAttribute("underData",pageInfo.getUnderData());
         return "blog/article";
     }
 
@@ -218,11 +218,11 @@ public class MainController {
         map.put("type","5");
         PageInfo pageInfo=mainService.findlifeDetails(map);
         model.addAttribute("list",pageInfo.getPageData().get(0));
-        model.addAttribute("newsdate",pageInfo.getNewsData());
-        model.addAttribute("rankdate",pageInfo.getRankData());
-        model.addAttribute("relatedate",pageInfo.getRelateData());
-        model.addAttribute("ondate",pageInfo.getOnData());
-        model.addAttribute("underDate",pageInfo.getUnderData());
+        model.addAttribute("newsdata",pageInfo.getNewsData());
+        model.addAttribute("rankdata",pageInfo.getRankData());
+        model.addAttribute("relatedata",pageInfo.getRelateData());
+        model.addAttribute("ondata",pageInfo.getOnData());
+        model.addAttribute("underData",pageInfo.getUnderData());
         return "blog/article";
     }
 
