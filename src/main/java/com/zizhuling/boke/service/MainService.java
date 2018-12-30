@@ -26,4 +26,9 @@ public interface MainService {
      * @return
      */
     public PageInfo findDoing(Map<String,Object> map);
+    /**
+     * 查询标签界面数据
+     * @return
+     */
+    public PageInfo findTags(Map<String,Object> map);
 }

@@ -14,6 +14,7 @@ $("document").ready(function(){
             var resultHtml = "<h2> <b>今日</b>推荐 </h2>";
             var newsHtml = "";
             var rankHtml = "";
+            var recommendHtml = "";
             /**生成页面数据*/
             $.each(data.pageData,function(index,element){
                 resultHtml+="<div class='blogs'>";
@@ -33,11 +34,17 @@ $("document").ready(function(){
                 rankHtml += "<a href='/main/findIndexDetails.do?cid="+element.cid+"' title='"+element.title+"' >"+element.title+"</a>";
                 rankHtml += "</li>";
             })
+            /**生成最新排行数据*/
+            $.each(data.recommendData,function(index,element){
+                recommendHtml += "<li>";
+                recommendHtml += "<a href='/main/findIndexDetails.do?cid="+element.cid+"' title='"+element.title+"' >"+element.title+"</a>";
+                recommendHtml += "</li>";
+            })
 
             $("#findIndex").html(resultHtml);
             $("#rankData").html(rankHtml);
             $("#newsData").html(newsHtml);
-            $("#nominateData").html(rankHtml);
+            $("#nominateData").html(recommendHtml);
         }
     })
 })

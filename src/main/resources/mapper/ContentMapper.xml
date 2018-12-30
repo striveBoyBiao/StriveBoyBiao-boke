@@ -49,7 +49,7 @@
         limit #{pagebegin},#{pagesize}
     </select>
     <!--查询首页,慢生活,学无止境 最新文章-->
-    <select id="findLifeNewsDate" parameterType="Map" resultType="org.apache.commons.collections.map.CaseInsensitiveMap">
+    <select id="findLifeNewsData" parameterType="Map" resultType="org.apache.commons.collections.map.CaseInsensitiveMap">
         select bc.cid,
         bc.title
         from blog_content bc
@@ -61,7 +61,7 @@
         limit #{news},#{newslength}
     </select>
     <!--查询首页,慢生活,学无止境 排行榜-->
-    <select id="findLifeRankDate" parameterType="Map" resultType="org.apache.commons.collections.map.CaseInsensitiveMap">
+    <select id="findLifeRankData" parameterType="Map" resultType="org.apache.commons.collections.map.CaseInsensitiveMap">
         select bc.cid,
         bc.title
         from blog_content bc
@@ -73,7 +73,7 @@
         limit #{rank},#{ranklength}
     </select>
     <!--查询首页,慢生活,学无止境 相关文章-->
-    <select id="findLifeRelateDate" parameterType="Map" resultType="org.apache.commons.collections.map.CaseInsensitiveMap">
+    <select id="findLifeRelateData" parameterType="Map" resultType="org.apache.commons.collections.map.CaseInsensitiveMap">
         select bc.cid,
         bc.title
         from blog_content bc
@@ -83,6 +83,18 @@
         <if test="type==5">and bc.categories in ('10','11','12','13','14','15')</if>
         and bc.content like concat('%',#{gjzc},'%')
         limit #{relate},#{relatelength}
+    </select>
+    <!--查询首页,标签，推荐文章-->
+    <select id="findRecommendData" parameterType="Map" resultType="org.apache.commons.collections.map.CaseInsensitiveMap">
+        select bc.cid,
+        bc.title
+        from blog_content bc
+        where 1=1
+        <if test="type==1">and bc.categories in ('10','11','12','13','14','15','16','17','18','19','20','21')</if>
+        <if test="type==3">and bc.categories in ('16','17','18','19','20','21')</if>
+        <if test="type==5">and bc.categories in ('10','11','12','13','14','15')</if>
+        order by bc.recommend desc
+        limit #{news},#{newslength}
     </select>
 
     <!--查询首页,慢生活,学无止境 详细界面数据-->
@@ -108,7 +120,7 @@
 
 
     <!--查询上一篇-->
-    <select id="findLifeOnDate" parameterType="Map" resultType="org.apache.commons.collections.map.CaseInsensitiveMap">
+    <select id="findLifeOnData" parameterType="Map" resultType="org.apache.commons.collections.map.CaseInsensitiveMap">
         select bc.cid,
         bc.title
         from blog_content bc
@@ -119,7 +131,7 @@
         and #{cid}>bc.cid order by bc.cid desc limit 1 ;
     </select>
     <!--查询下一篇-->
-    <select id="findLifeUnderDate" parameterType="Map" resultType="org.apache.commons.collections.map.CaseInsensitiveMap">
+    <select id="findLifeUnderData" parameterType="Map" resultType="org.apache.commons.collections.map.CaseInsensitiveMap">
         select bc.cid,
         bc.title
         from blog_content bc

@@ -4,7 +4,6 @@ import com.zizhuling.boke.dao.ContentDao;
 import com.zizhuling.boke.utils.Constants;
 import com.zizhuling.boke.utils.PageInfo;
 import com.zizhuling.boke.service.MainService;
-import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,6 +53,22 @@ public class MainServiceImpl implements MainService{
         return pageInfo;
     }
 
+    @Override
+    public PageInfo findTags(Map<String, Object> map) {
+        PageInfo pageInfo=new PageInfo("1");
+        map.put("news",0);
+        map.put("newslength",10);
+        map.put("rank",0);
+        map.put("ranklength",6);
+        List<Map<String,Object>> newsData=contentDao.findLifeNewsData(map);
+        List<Map<String,Object>> rankData=contentDao.findLifeRankData(map);
+        List<Map<String,Object>> recommendData=contentDao.findRecommendData(map);
+        pageInfo.setNewsData(newsData);
+        pageInfo.setRankData(rankData);
+        pageInfo.setRecommendData(recommendData);
+        return pageInfo;
+    }
+
     /**
      * 查询首页,慢生活,学无止境 界面数据
      * @return
@@ -77,8 +92,13 @@ public class MainServiceImpl implements MainService{
         map.put("newslength",6);
         map.put("rank",0);
         map.put("ranklength",6);
-        List<Map<String,Object>> newsData=contentDao.findLifeNewsDate(map);
-        List<Map<String,Object>> rankData=contentDao.findLifeRankDate(map);
+        List<Map<String,Object>> newsData=contentDao.findLifeNewsData(map);
+        List<Map<String,Object>> rankData=contentDao.findLifeRankData(map);
+        if(Constants.STRING_ONE.equals(map.get("type"))){
+            /*首页查询推荐文章*/
+            List<Map<String,Object>> recommendData=contentDao.findRecommendData(map);
+            pageInfo.setRecommendData(recommendData);
+        }
         pageInfo.setPageData(list);
         pageInfo.setNewsData(newsData);
         pageInfo.setRankData(rankData);
@@ -100,12 +120,12 @@ public class MainServiceImpl implements MainService{
         /*修改阅读量*/
         contentDao.updateClickRate(map);
         List<Map<String,Object>> list=contentDao.findlifeDetails(map);
-        List<Map<String,Object>> newsData=contentDao.findLifeNewsDate(map);
-        List<Map<String,Object>> rankData=contentDao.findLifeRankDate(map);
+        List<Map<String,Object>> newsData=contentDao.findLifeNewsData(map);
+        List<Map<String,Object>> rankData=contentDao.findLifeRankData(map);
         map.put("gjzc",list.get(0).get("gjzc"));
-        List<Map<String,Object>> relateData=contentDao.findLifeRelateDate(map);
-        Map<String,Object> onData=contentDao.findLifeOnDate(map);
-        Map<String,Object> underData=contentDao.findLifeUnderDate(map);
+        List<Map<String,Object>> relateData=contentDao.findLifeRelateData(map);
+        Map<String,Object> onData=contentDao.findLifeOnData(map);
+        Map<String,Object> underData=contentDao.findLifeUnderData(map);
         /*处理thymeleaf空数据报错*/
         if (onData==null){
             onData=new HashMap<String,Object>();

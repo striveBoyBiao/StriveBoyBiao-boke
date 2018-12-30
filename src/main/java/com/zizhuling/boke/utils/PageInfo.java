@@ -8,29 +8,32 @@ import java.util.List;
  *
  */
 public class PageInfo<T> {
-	//当前页
+	/**当前页*/
 	private String pageNo;
-	//每页大小
+	/**每页大小*/
 	public static int pageSize =10;
-	//每页开始
+	/**每页开始*/
 	public static int pageBegin=0;
-	//总共多少条数据
+	/**总共多少条数据*/
 	private int rowCount;
-	//页的数量
+	/**页的数量*/
 	private int pageCount;
-	//每页数据
+	/**每页数据*/
 	private List<T> pageData;
-	//查询的数量
+	/**查询的数量*/
 	private Integer queryCount;
+	/**类型*/
 	private String type;
+	/**状态*/
 	private String state;
-	private String mohu;
-	//最新文章
+	/**最新文章*/
 	private List<T> newsData;
-	//排行榜
+	/**排行榜*/
 	private List<T> rankData;
-	//相关文档
+	/**相关文档*/
 	private List<T> relateData;
+	/**推荐文档*/
+	private List<T> recommendData;
 	/**上一篇*/
 	private T onData;
 	/**下一篇*/
@@ -41,6 +44,14 @@ public class PageInfo<T> {
 		this.pageNo = pageNo;
 		this.pageBegin = (Integer.parseInt(pageNo) - 1)*pageSize;
 		
+	}
+
+	public List<T> getRecommendData() {
+		return recommendData;
+	}
+
+	public void setRecommendData(List<T> recommendData) {
+		this.recommendData = recommendData;
 	}
 
 	public T getOnData() {
@@ -66,16 +77,6 @@ public class PageInfo<T> {
 
 	public void setState(String state) {
 		this.state = state;
-	}
-
-
-	public String getMohu() {
-		return mohu;
-	}
-
-
-	public void setMohu(String mohu) {
-		this.mohu = mohu;
 	}
 
 

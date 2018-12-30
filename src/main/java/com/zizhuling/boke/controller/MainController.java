@@ -101,7 +101,13 @@ public class MainController {
      * @return
      */
     @RequestMapping("/tags")
-    public String tags() {
+    public String tags(HttpServletRequest request,Model model) {
+        Map<String,Object> map=new HashMap<String,Object>();
+        map.put("type","1");
+        PageInfo pageInfo=mainService.findTags(map);
+        model.addAttribute("newsdata",pageInfo.getNewsData());
+        model.addAttribute("rankdata",pageInfo.getRankData());
+        model.addAttribute("recommenddata",pageInfo.getRecommendData());
         return "blog/tags";
     }
 
@@ -173,7 +179,7 @@ public class MainController {
         model.addAttribute("relatedata",pageInfo.getRelateData());
         model.addAttribute("ondata",pageInfo.getOnData());
         model.addAttribute("underData",pageInfo.getUnderData());
-        return "blog/article";
+        return "blog/life_article";
     }
 
     /**
@@ -223,7 +229,7 @@ public class MainController {
         model.addAttribute("relatedata",pageInfo.getRelateData());
         model.addAttribute("ondata",pageInfo.getOnData());
         model.addAttribute("underData",pageInfo.getUnderData());
-        return "blog/article";
+        return "blog/learn_article";
     }
 
 

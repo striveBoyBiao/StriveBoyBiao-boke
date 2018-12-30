@@ -22,20 +22,22 @@ public interface ContentDao {
     List<Map<String,Object>> findlifeDetails(Map<String,Object> map);
 
 
-    /**查询慢生活数据数量*/
+    /**查询数据数量*/
     int queryLifeCount(Map<String,Object> map);
-    /**查询慢生活最新文章*/
-    List<Map<String,Object>> findLifeNewsDate(Map<String,Object> map);
-    /**查询慢生活最新排行*/
-    List<Map<String,Object>> findLifeRankDate(Map<String,Object> map);
-    /**查询慢生活相关文章*/
-    List<Map<String,Object>> findLifeRelateDate(Map<String,Object> map);
+    /**查询最新文章*/
+    List<Map<String,Object>> findLifeNewsData(Map<String,Object> map);
+    /**查询最新排行*/
+    List<Map<String,Object>> findLifeRankData(Map<String,Object> map);
+    /**查询相关文章*/
+    List<Map<String,Object>> findLifeRelateData(Map<String,Object> map);
+    /**查询推荐文章*/
+    List<Map<String,Object>> findRecommendData(Map<String,Object> map);
 
 
     /**查询上一篇文章*/
-    Map<String,Object> findLifeOnDate(Map<String,Object> map);
+    Map<String,Object> findLifeOnData(Map<String,Object> map);
     /**查询下一篇文章*/
-    Map<String,Object> findLifeUnderDate(Map<String,Object> map);
+    Map<String,Object> findLifeUnderData(Map<String,Object> map);
     /**修改阅读量*/
     void updateClickRate(Map<String,Object> map);
 }
