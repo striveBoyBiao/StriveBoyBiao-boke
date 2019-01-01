@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.zizhuling</groupId>
   <artifactId>StriveBoyBiao-boke</artifactId>
-  <packaging>war</packaging>
+  <packaging>jar</packaging>
   <version>1.0-SNAPSHOT</version>
   <name>StriveBoyBiao-boke Maven Webapp</name>
   <url>http://maven.apache.org</url>
@@ -171,6 +171,6 @@
               <artifactId>spring-boot-maven-plugin</artifactId>
           </plugin>
       </plugins>
-    <finalName>springbootDemo</finalName>
+    <finalName>StriveBoyBiao-boke</finalName>
   </build>
 </project>
