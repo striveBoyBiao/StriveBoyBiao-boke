@@ -1,7 +1,7 @@
 ﻿<!doctype html>
 <html>
 <head>
-<title>-何彪个人博客-一个开启你记录旅行的足迹和分享途中所见所闻，与探讨互联网神秘技术的网站</title>
+<title>何彪个人博客-一个开启你记录旅行的足迹和分享途中所见所闻，与探讨互联网神秘技术的网站</title>
 <meta name="keywords" content="何彪个人博客" />
 <meta name="description" content="" />
 <link href="/css/base.css" rel="stylesheet">
@@ -868,18 +868,21 @@ s.parentNode.insertBefore(hm, s);
 		  <li th:each="data : ${recommenddata}">
 			  <a  th:href="@{/main/findIndexDetails.do?cid={cid}(cid=${data.cid})}"  th:text="${data.title}" th:title="${data.title}"></a>
 		  </li>
-　　		<!--	<li><a href="/">给我一个答案</a></li>
-　　			<li><a href="/">生活是什么？</a></li>
-　　			<li><a href="/">那些不是事</a></li>
-　　			<li><a href="/">路·过-喜欢在路上</a></li>
-　　			<li><a href="/">人生因分享,人生因分享的风景</a></li>
-　　			<li><a href="/">跟着自己的心走</a></li>
-　　			<li><a href="/">只想，留住心中的那份静美</a></li>
-　　			<li><a href="/">走村窜寨- 一路黔行之黔东南</a></li>
-　　			<li><a href="/">人生因为有残缺，所以才会美</a></li>
-　　			<li><a href="/">分享逗逼三人游云南旅行</a></li>-->
       </ul>
     </div>
+	  <!--添加评论-->
+	  <div class="tit01" style="width: 100%;clear: both;overflow: hidden; overflow-x: hidden; overflow-y: hidden;">
+		  <h3>文章评论</h3>
+		  <!--PC版-->
+		  <div id="SOHUCS" sid="<#article/id#>" ></div>
+	  </div>
+	  <script charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/changyan.js" ></script>
+	  <script type="text/javascript">
+          window.changyan.api.config({
+              appid: 'cytKzYNfj',
+              conf: 'prod_07cc58b4a84c0ffab71eb1ca6cc6c9a4'
+          });
+	  </script>
   </div>
 
   <aside class="right">
@@ -899,7 +902,7 @@ s.parentNode.insertBefore(hm, s);
     <div class="titm">
     	<p>即将流逝的时光，请珍惜！</p>
 		<div width="260" height="90">
-			<video src="/video/dy.mp4" height="100px" width="100%"></video>
+			<iframe src="//player.bilibili.com/player.html?aid=25605552&cid=43639846&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 			<!--  <h4><video src="/video/dy.mp4" height="100px" width="100%"></video></h4>-->
 			<p><a href="/"><img src="" alt="" /></a></p>
 		</div>
@@ -907,40 +910,23 @@ s.parentNode.insertBefore(hm, s);
 	<!--最新日志侧栏 列表-->
 	<div class="newbolg">
        <h2><a href="/">最新日志</a></h2>
-    <ul class="rank">
-		<li th:each="data : ${newsdata}">
-			<a  th:href="@{/main/findIndexDetails.do?cid={cid}(cid=${data.cid})}"  th:text="${data.title}" th:title="${data.title}"></a>
-		</li>
-		<!--<li><a title="生活是什么？" target="_blank" href="/">生活是什么？</a></li>
-		<li><a title="那些不是事" target="_blank" href="/">那些不是事</a></li>
-		<li><a title="路·过-喜欢在路上" target="_blank" href="/">路·过-喜欢在路上</a></li>
-		<li><a title="人生因分享,人生因分享的风景" target="_blank" href="/">人生因分享,人生因分享的风景</a></li>
-		<li><a title="跟着自己的心走" target="_blank" href="/">跟着自己的心走</a></li>
-		<li><a title="只想，留住心中的那份静美" target="_blank" href="/">只想，留住心中的那份静美</a></li>
-		<li><a title="走村窜寨- 一路黔行之黔东南" target="_blank" href="/">走村窜寨- 一路黔行之黔东南</a></li>
-		<li><a title="人生因为有残缺，所以才会美" target="_blank" href="/">人生因为有残缺，所以才会美</a></li>
-		<li><a title="分享逗逼三人游云南旅行" target="_blank" href="/">分享逗逼三人游云南旅行</a></li>
-		<li><a title="「秋天，一次旅行」出走围城的所见所闻" target="_blank" href="/">「秋天，一次旅行」出走围城的所见所闻</a></li>-->
-
-      </ul>   
+		<ul class="rank">
+			<li th:each="data : ${newsdata}">
+				<a  th:href="@{/main/findIndexDetails.do?cid={cid}(cid=${data.cid})}"  th:text="${data.title}" th:title="${data.title}"></a>
+			</li>
+		  </ul>
     </div>
 
 	<!--热评list-->
 	<div class="hotcomm">
-      <h2>热门评论</h2>
-     <ul>
-		 <li th:each="data : ${rankdata}">
-			 <a  th:href="@{/main/findIndexDetails.do?cid={cid}(cid=${data.cid})}"  th:text="${data.title}" th:title="${data.title}"></a>
-		 </li>
-     <!--	<li><a title="两只蜗牛艰难又浪漫的一吻" href="/"  target="_blank">两只蜗牛艰难又浪漫的一吻</a></li>
-		<li><a title="每每接到新项目，都感觉困难，踏出第一步后，" href="/"  target="_blank">每每接到新项目，都感觉困难，踏出第一步后，</a></li>
-		<li><a title="春暖花开-走走停停-发现美" href="/"  target="_blank">春暖花开-走走停停-发现美</a></li>
-		<li><a title="Ui Parade免费的UI在线设计工具" href="/"  target="_blank">Ui Parade免费的UI在线设计工具</a></li>
-		<li><a title="记得秋天吗" href="/"  target="_blank">记得秋天吗</a></li>
-		<li><a title="教你几招高度伪原创软文的方法！" href="/"  target="_blank">教你几招高度伪原创软文的方法！</a></li>
-	-->
-     </ul>    
+      	 <h2>热门评论</h2>
+		 <ul>
+			 <li th:each="data : ${rankdata}">
+				 <a  th:href="@{/main/findIndexDetails.do?cid={cid}(cid=${data.cid})}"  th:text="${data.title}" th:title="${data.title}"></a>
+			 </li>
+		 </ul>
     </div>
+
     <div class="share">
     	<h2></h2>  
     <div class="bdsharebuttonbox"><a title="分享到新浪微博" class="bds_tsina" href="/" data-cmd="tsina"></a><a title="分享到腾讯微博" class="bds_tqq" href="/" data-cmd="tqq"></a><a title="分享到QQ空间" class="bds_qzone" href="/" data-cmd="qzone"></a><a title="分享到微信" class="bds_weixin" href="/" data-cmd="weixin"></a><a title="分享到人人网" class="bds_renren" href="/" data-cmd="renren"></a><a class="bds_more" href="/" data-cmd="more"></a></div>

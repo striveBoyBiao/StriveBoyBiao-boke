@@ -20,7 +20,7 @@ $("document").ready(function(){
                 resultHtml+="<div class='blogs'>";
                 resultHtml+="<figure><a  class='preview'  href='/main/findIndexDetails.do?cid="+element.cid+"'><img src='"+element.titlepicture+"' alt='"+element.title+"'></a></figure>";
                 resultHtml+="<h3><a title='"+element.title+"' href='/main/findIndexDetails.do?cid="+element.cid+"'>"+element.title+"</a></h3><p>"+element.introduction+"</p>";
-                resultHtml+="<ul><p class='autor'><span class='lm f_l'><a href='#'>"+element.typename+"</a></span><span class='dtime f_l'>"+element.gtmcreate+"</span> <span class='viewnum f_l'>浏览（88）</span> <span class='pingl f_'>评论（<a>0</a>）</span> </p></ul></div>";
+                resultHtml+="<ul><p class='autor'><span class='lm f_l'><a href='#'>"+element.typename+"</a></span><span class='dtime f_l'>"+element.gtmmodified+"</span> <span class='viewnum f_l'>浏览（88）</span> <span class='pingl f_'>评论（<a>0</a>）</span> </p></ul></div>";
             })
             /**生成最新文章数据*/
             $.each(data.newsData,function(index,element){

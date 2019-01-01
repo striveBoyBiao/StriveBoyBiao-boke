@@ -31,7 +31,7 @@ s.parentNode.insertBefore(hm, s);
 <body>
 <!--header-->
 <header>
-      <div id="logo"><a href="/" title="何彪个人博客"><img src="/images/logo.png" width="260" height="100"></a></div>
+      <div id="logo"><a href="http://www.zizhuling.cn" title="何彪个人博客"><img src="/images/logo.png" width="260" height="100"></a></div>
       <nav class="topnav" id="topnav">
           <a href="/index" title="首页"><span>首页</span><span class="en"></span></a>
           <a href="/about" title="关于我"><span>关于我</span><span class="en"></span></a>
@@ -44,10 +44,10 @@ s.parentNode.insertBefore(hm, s);
 </header>
 <!--header-->
 
-<article class="blogs">
+<article class="blogs" id="app-life">
 	<h1 class="t_nav">
     	<span>"慢生活"不是懒惰，放慢速度不是拖延时间，而是让我们在生活中寻找到平衡。</span>
-        <a href="/" title="网站首页" class="n1">网站首页</a><a href="/" title="慢生活" class="n2">慢生活</a>
+        <a href="/index" title="网站首页" class="n1">网站首页</a><a href="#" title="慢生活" class="n2">慢生活</a>
     </h1>
     <div class="template">
       <div class="box">
@@ -55,167 +55,41 @@ s.parentNode.insertBefore(hm, s);
           <p><span>记录 </span>回忆 Recall</p>
         </h3>
         <ul>
-          <li><a href="/" title="很干净" target="_blank"><img src="/images/1434882856126573-lp.jpg"></a><span>很干净</span></li>
-<li><a href="/" title="不再因为别人过得好而焦" target="_blank"><img src="/images/1433940740595775.jpg"></a><span>不再因为别人过得好而焦</span></li>
-<li><a href="/" title="不再因为别人过得好而焦" target="_blank"><img src="/images/1433940796115953.jpg"></a><span>不再因为别人过得好而焦</span></li>
-<li><a href="/" title="一个人最好的模样大概是" target="_blank"><img src="/images/1434884425106120-lp.jpg"></a><span>一个人最好的模样大概是</span></li>
-<li><a href="/" title="逃避自己的人" target="_blank"><img src="/images/1434884403641646-lp.jpg"></a><span>逃避自己的人</span></li>
-<li><a href="/" title="旅行的记忆" target="_blank"><img src="/images/1433936637744234.jpg"></a><span>旅行的记忆</span></li>
+            <li><a href="/life" title="很干净" ><img src="/images/1434882856126573-lp.jpg"></a><span>很干净</span></li>
+            <li><a href="/life" title="不再因为别人过得好而焦" ><img src="/images/1433940740595775.jpg"></a><span>不再因为别人过得好而焦</span></li>
+            <li><a href="/life" title="不再因为别人过得好而焦" ><img src="/images/1433940796115953.jpg"></a><span>不再因为别人过得好而焦</span></li>
+            <li><a href="/life" title="一个人最好的模样大概是" ><img src="/images/1434884425106120-lp.jpg"></a><span>一个人最好的模样大概是</span></li>
+            <li><a href="/life" title="逃避自己的人" ><img src="/images/1434884403641646-lp.jpg"></a><span>逃避自己的人</span></li>
+            <li><a href="/life" title="旅行的记忆"  ><img src="/images/1433936637744234.jpg"></a><span>旅行的记忆</span></li>
 
         </ul>
       </div>
 	</div>
     <h2 class="title_tj">
-    <p>文章<span>推荐</span></p>
-  </h2>
+         <p>文章<span>推荐</span></p>
+    </h2>
 	<div class="newblog left">
     	<!--左left开始-->
-        <h2><a title="路·过-喜欢在路上" href="/">路·过-喜欢在路上</a></h2>
-    		<figure><img src='/images/1442642178239101-lp.jpg' border='0' width='120' height='120' alt='路·过-喜欢在路上'></figure>
+        <template v-for="data in dataList">
+            <h2><a v-bind:title="data.title" v-bind:href="bindsrc(data.cid)">{{data.title}}</a></h2>
+    		<figure><img v-bind:src='data.titlepicture' border='0' width='120' height='120' v-bind:alt='data.title'></figure>
     		<ul class="nlist">
-      			<p>注定，有些路，只能一个人走；有些事，只能一个人扛。因为我喜欢在路上！走在林间小道上，一个人，晃晃悠悠，无所适从，看着那些在风中微微呻吟着的落叶，远远望去，像一群疲...</p>
-      			<a title="路·过-喜欢在路上" href="/" target="_blank" class="readmore">阅读全文>></a>
+      			<p v-html="data.introduction"></p>
+      			<a v-bind:title="data.title"  v-bind:href="bindsrc(data.cid)"  class="readmore">阅读全文>></a>
     		</ul>
-				<p class="dateview">
-                    <span>发布时间：2015-09-19</span>
-                    <span>作者：罗俊杰个人博客</span>
-                    <span>分类：[<a href="/">悠客</a>]</span>
-                    <span class="nl">浏览（101)</span>
-                    <span class="n2">评论（<a href="/">0</a>）</span>
+            <p class="dateview">
+                    <span>发布时间：{{data.gtmmodified}}</span>
+                    <span>作者：{{data.author}}个人博客</span>
+                    <span>分类：[<a href="#">{{data.typename}}</a>]</span>
+                    <span class="nl">浏览（{{data.reading}})</span>
+                    <span class="n2">评论（<a href="#">{{data.commentsnum}}</a>）</span>
             		<div class="line"></div>
-        		</p>
-<h2><a title="人生因分享,人生因分享的风景" href="/">人生因分享,人生因分享的风景</a></h2>
-    		<figure><img src='/images/1442641275653897-lp.jpg' border='0' width='120' height='120' alt='人生因分享,人生因分享的风景'></figure>
-    		<ul class="nlist">
-      			<p>人生的风景，该以怎样的笔墨去形容，以怎样的目光去审视，以怎样的灵魂去容纳？人生因分享，而永远都是那般的美好：生命中本就有许多无可奈何的悲伤和痛苦。路本是同样的路，...</p>
-      			<a title="人生因分享,人生因分享的风景" href="/" target="_blank" class="readmore">阅读全文>></a>
-    		</ul>
-				<p class="dateview">
-                    <span>发布时间：2015-09-19</span>
-                    <span>作者：罗俊杰个人博客</span>
-                    <span>分类：[<a href="/">慢阅读</a>]</span>
-                    <span class="nl">浏览（174)</span>
-                    <span class="n2">评论（<a href="/">0</a>）</span>
-            		<div class="line"></div>
-        		</p>
-<h2><a title="跟着自己的心走" href="/">跟着自己的心走</a></h2>
-    		<figure><img src='/images/defaultpic.gif' border='0' width='120' height='120' alt='跟着自己的心走'></figure>
-    		<ul class="nlist">
-      			<p>今天就来和大家一起分享一下我个人的心中的所想和所见所闻把！喜欢幽静的小草，却总是邂逅那些鲜艳的花朵；喜欢那种静谧，却一直徘徊在喧嚣的世界；喜欢一种素净，却一直面对...</p>
-      			<a title="跟着自己的心走" href="/" target="_blank" class="readmore">阅读全文>></a>
-    		</ul>
-				<p class="dateview">
-                    <span>发布时间：2015-09-18</span>
-                    <span>作者：罗俊杰个人博客</span>
-                    <span>分类：[<a href="/">享受慢活</a>]</span>
-                    <span class="nl">浏览（65)</span>
-                    <span class="n2">评论（<a href="/">0</a>）</span>
-            		<div class="line"></div>
-        		</p>
-<h2><a title="只想，留住心中的那份静美" href="/">只想，留住心中的那份静美</a></h2>
-    		<figure><img src='/images/1442539025939884-lp.jpg' border='0' width='120' height='120' alt='只想，留住心中的那份静美'></figure>
-    		<ul class="nlist">
-      			<p>在这个鸟语花香的季节,踏着早晨罗俊杰个人博客的一缕光芒在小路间走着,呼吸着这自然的清晰空气，只想，衣袂飘飘，信步于绿荫小道，或俯首听花开，或低眉赏花香，盈脉脉春意，于眼波中...</p>
-      			<a title="只想，留住心中的那份静美" href="/" target="_blank" class="readmore">阅读全文>></a>
-    		</ul>
-				<p class="dateview">
-                    <span>发布时间：2015-09-18</span>
-                    <span>作者：罗俊杰个人博客</span>
-                    <span>分类：[<a href="/">享受慢活</a>]</span>
-                    <span class="nl">浏览（195)</span>
-                    <span class="n2">评论（<a href="/">0</a>）</span>
-            		<div class="line"></div>
-        		</p>
-<h2><a title="走村窜寨- 一路黔行之黔东南" href="/">走村窜寨- 一路黔行之黔东南</a></h2>
-    		<figure><img src='/images/1442457564979540.jpeg' border='0' width='120' height='120' alt='走村窜寨- 一路黔行之黔东南'></figure>
-    		<ul class="nlist">
-      			<p>很早之前就计划国庆和小伙伴们自驾梅里雪山，线路安排都已打上了行程，不幸计划没有变化快，八月底香格里拉的地震把全盘计划打乱了，小伙伴们鸟做兽散，拍屁股各走各的新路线...</p>
-      			<a title="走村窜寨- 一路黔行之黔东南" href="/" target="_blank" class="readmore">阅读全文>></a>
-    		</ul>
-				<p class="dateview">
-                    <span>发布时间：2015-09-17</span>
-                    <span>作者：罗俊杰个人博客</span>
-                    <span>分类：[<a href="/">闲暇时光</a>]</span>
-                    <span class="nl">浏览（176)</span>
-                    <span class="n2">评论（<a href="/">0</a>）</span>
-            		<div class="line"></div>
-        		</p>
-<h2><a title="人生因为有残缺，所以才会美" href="/">人生因为有残缺，所以才会美</a></h2>
-    		<figure><img src='/images/1442368731721857-lp.jpg' border='0' width='120' height='120' alt='人生因为有残缺，所以才会美'></figure>
-    		<ul class="nlist">
-      			<p>人，越简单就会越快乐;水，掺杂东西越少才会显得清澈靓丽。大自然越安静,才会体现它的本质。人生就是这样，倘若有运，不用祈求，因为祈求也是无用。倘若无运，无需悲伤，因为悲...</p>
-      			<a title="人生因为有残缺，所以才会美" href="/" target="_blank" class="readmore">阅读全文>></a>
-    		</ul>
-				<p class="dateview">
-                    <span>发布时间：2015-09-16</span>
-                    <span>作者：罗俊杰个人博客</span>
-                    <span>分类：[<a href="/">慢阅读</a>]</span>
-                    <span class="nl">浏览（183)</span>
-                    <span class="n2">评论（<a href="/">0</a>）</span>
-            		<div class="line"></div>
-        		</p>
-<h2><a title="分享逗逼三人游云南旅行" href="/">分享逗逼三人游云南旅行</a></h2>
-    		<figure><img src='/images/1442201163344838-lp.jpg' border='0' width='120' height='120' alt='分享逗逼三人游云南旅行'></figure>
-    		<ul class="nlist">
-      			<p>不尽感叹时间的飞速，还没有准备好一切就要开始启程，就这样和两位逗逼一起来一趟说走就走的旅行。选择云南源于对香格里拉的的情怀，听说那是早晨罗俊杰个人博客第一缕阳光洒进的地...</p>
-      			<a title="分享逗逼三人游云南旅行" href="/" target="_blank" class="readmore">阅读全文>></a>
-    		</ul>
-				<p class="dateview">
-                    <span>发布时间：2015-09-14</span>
-                    <span>作者：罗俊杰个人博客</span>
-                    <span>分类：[<a href="/">闲暇时光</a>]</span>
-                    <span class="nl">浏览（185)</span>
-                    <span class="n2">评论（<a href="/">0</a>）</span>
-            		<div class="line"></div>
-        		</p>
-<h2><a title="「秋天，一次旅行」出走围城的所见所闻" href="/">「秋天，一次旅行」出走围城的所见所闻</a></h2>
-    		<figure><img src='/images/1442196780535387.jpg' border='0' width='120' height='120' alt='「秋天，一次旅行」出走围城的所见所闻'></figure>
-    		<ul class="nlist">
-      			<p>每天来回在城市里两点规律运动，尽管曾尝试着换着不同的路线，用不同的交通工具，听着不同的音乐，可终究一切都是再熟悉不过的场景，那也许是时候出去走走了来增加自己的所见...</p>
-      			<a title="「秋天，一次旅行」出走围城的所见所闻" href="/" target="_blank" class="readmore">阅读全文>></a>
-    		</ul>
-				<p class="dateview">
-                    <span>发布时间：2015-09-14</span>
-                    <span>作者：罗俊杰个人博客</span>
-                    <span>分类：[<a href="/">享受慢活</a>]</span>
-                    <span class="nl">浏览（128)</span>
-                    <span class="n2">评论（<a href="/">0</a>）</span>
-            		<div class="line"></div>
-        		</p>
-<h2><a title="云南之旅" href="/">云南之旅</a></h2>
-    		<figure><img src='/images/1442139061500731-lp.jpg' border='0' width='120' height='120' alt='云南之旅'></figure>
-    		<ul class="nlist">
-      			<p>今天早上起来看到窗外的九点钟的阳光普照着大地，让我想起了在丽江的时间。有好的东西就是要和大家一起分享，今天就和大家分享我在丽江的经历，我是2014年3月12日去的丽江，在那...</p>
-      			<a title="云南之旅" href="/" target="_blank" class="readmore">阅读全文>></a>
-    		</ul>
-				<p class="dateview">
-                    <span>发布时间：2015-09-13</span>
-                    <span>作者：罗俊杰个人博客</span>
-                    <span>分类：[<a href="/">闲暇时光</a>]</span>
-                    <span class="nl">浏览（145)</span>
-                    <span class="n2">评论（<a href="/">0</a>）</span>
-            		<div class="line"></div>
-        		</p>
-<h2><a title="贵阳将打造国际休闲度假旅游名城" href="/">贵阳将打造国际休闲度假旅游名城</a></h2>
-    		<figure><img src='/images/1438736453260226-lp.jpg' border='0' width='120' height='120' alt='贵阳将打造国际休闲度假旅游名城'></figure>
-    		<ul class="nlist">
-      			<p>7月29日,市旅游产业发展委召开专题会议,深入学习贯彻省委、市委工作会议精神。联系全市旅游工作实际,会议提出,贵阳将进一步完善“吃、厕、住、行、游、购、娱”等配套要素,加快...</p>
-      			<a title="贵阳将打造国际休闲度假旅游名城" href="/" target="_blank" class="readmore">阅读全文>></a>
-    		</ul>
-				<p class="dateview">
-                    <span>发布时间：2015-08-05</span>
-                    <span>作者：罗俊杰个人博客</span>
-                    <span>分类：[<a href="/">慢阅读</a>]</span>
-                    <span class="nl">浏览（148)</span>
-                    <span class="n2">评论（<a href="/">0</a>）</span>
-            		<div class="line"></div>
-        		</p>
+            </p>
+        </template>
 
-       
+
         <!--分页开始-->
-    	<div class="page">
-            
-       </div>
+        <div class="page" style='width: 600px;margin-left:30%;' id='footer'></div>
        <!--分页结束-->
 	</div>
     
@@ -224,54 +98,41 @@ s.parentNode.insertBefore(hm, s);
        <nav class="nav">
           <ul>
                
-           <h4 class="ab"><a href="/" title="乐活空间">乐活空间</a></h4>
+           <h4 class="ab"><a href="#" title="乐活空间" v-on:click="queryLanMu('16')">乐活空间</a></h4>
                  
-           <h4 class="ab"><a href="/" title="闲暇时光">闲暇时光</a></h4>
+           <h4 class="ab"><a href="#" title="闲暇时光" v-on:click="queryLanMu('17')">闲暇时光</a></h4>
                  
-           <h4 class="ab"><a href="/" title="享受慢活">享受慢活</a></h4>
+           <h4 class="ab"><a href="#" title="享受慢活" v-on:click="queryLanMu('18')">享受慢活</a></h4>
                  
-           <h4 class="ab"><a href="/" title="慢阅读">慢阅读</a></h4>
+           <h4 class="ab"><a href="#" title="慢阅读"   v-on:click="queryLanMu('19')">慢阅读</a></h4>
                  
-           <h4 class="ab"><a href="/" title="悠客">悠客</a></h4>
+           <h4 class="ab"><a href="#" title="悠客"     v-on:click="queryLanMu('20')">悠客</a></h4>
                  
-           <h4 class="ab"><a href="/" title="慢氧吧">慢氧吧</a></h4>
+           <h4 class="ab"><a href="#" title="慢氧吧"   v-on:click="queryLanMu('21')">慢氧吧</a></h4>
             
          </ul>      
         </nav>
-      <script> 
-    var obj = document.getElementsByTagName("h4"); 
-    for(i=0;i<obj.length;i++)
-    { 
-    var str = "0123456789abcdef"; 
-    var t = "#"; 
-    for(j=0;j<6;j++) 
-    {t = t+ str.charAt(Math.random()*str.length);} 
-    obj[i].style.background=t;  
-    } 
-    </script> 
         <h2><p>近期文章</p></h2>
         <ul class="news">
-            <li><a href="/" title="我是路上的一抹游魂" target="_blank">我是路上的一抹游魂</a></li>
-<li><a href="/" title="川西故事" target="_blank">川西故事</a></li>
-<li><a href="/" title="借一场雨，淋落一地忧伤" target="_blank">借一场雨，淋落一地忧伤</a></li>
-<li><a href="/" title="IT人不要一辈子靠技术生存!读完彻底" target="_blank">IT人不要一辈子靠技术生存!读完彻底</a></li>
-<li><a href="/" title="走村窜寨- 一路黔行之黔东南" target="_blank">走村窜寨- 一路黔行之黔东南</a></li>
-<li><a href="/" title="分享逗逼三人游云南旅行" target="_blank">分享逗逼三人游云南旅行</a></li>
-<li><a href="/" title="贵阳将打造国际休闲度假旅游名城" target="_blank">贵阳将打造国际休闲度假旅游名城</a></li>
-<li><a href="/" title="春暖花开-走走停停-发现美" target="_blank">春暖花开-走走停停-发现美</a></li>
-<li><a href="/" title="云南之旅" target="_blank">云南之旅</a></li>
-<li><a href="/" title="人生因分享,人生因分享的风景" target="_blank">人生因分享,人生因分享的风景</a></li>
-
+            <li v-for="data in newsList">
+                <a v-bind:href="bindsrc(data.cid)"  v-bind:title="data.title">{{data.title}}</a>
+            </li>
         </ul>
+
        <!-- share分享 -->
        <div class="share">
-            <h2></h2>  
-        <div class="bdsharebuttonbox"><a title="分享到新浪微博" class="bds_tsina" href="/" data-cmd="tsina"></a><a title="分享到腾讯微博" class="bds_tqq" href="/" data-cmd="tqq"></a><a title="分享到QQ空间" class="bds_qzone" href="/" data-cmd="qzone"></a><a title="分享到微信" class="bds_weixin" href="/" data-cmd="weixin"></a><a title="分享到人人网" class="bds_renren" href="/" data-cmd="renren"></a><a class="bds_more" href="/" data-cmd="more"></a></div>
-    <script>window._bd_share_config={"common":{"bdSnsKey":{"tsina":"18067716981","tqq":"1016340174@qq.com"},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"32"},"share":{},"image":{"viewList":["tsina","tqq","qzone","weixin","renren"],"viewText":"分享到：","viewSize":"32"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["tsina","tqq","qzone","weixin","renren"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api//js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
-     <p></p>
+            <h2></h2>
+       <div class="bdsharebuttonbox">
+            <a title="分享到新浪微博" class="bds_tsina" href="/" data-cmd="tsina"></a>
+            <a title="分享到腾讯微博" class="bds_tqq" href="/" data-cmd="tqq"></a>
+            <a title="分享到QQ空间" class="bds_qzone" href="/" data-cmd="qzone"></a>
+            <a title="分享到微信" class="bds_weixin" href="/" data-cmd="weixin"></a>
+            <a title="分享到人人网" class="bds_renren" href="/" data-cmd="renren"></a>
+            <a class="bds_more" href="/" data-cmd="more"></a></div>
+            <p></p>
         </div>
-        <!--share分享--> 
-        </aside>
+        <!--share分享-->
+    </aside>
 </article>
 <footer>
   <p class="ft-copyright">何彪个人博客 Sunshine &nbsp;&nbsp;鄂ICP备18012534号</p>
@@ -281,5 +142,21 @@ s.parentNode.insertBefore(hm, s);
 <script type="text/javascript">
 swfobject.registerObject("FlashID");
 </script>
+<!-- share分享 -->
+<script>window._bd_share_config={"common":{"bdSnsKey":{"tsina":"18067716981","tqq":"1016340174@qq.com"},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"32"},"share":{},"image":{"viewList":["tsina","tqq","qzone","weixin","renren"],"viewText":"分享到：","viewSize":"32"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["tsina","tqq","qzone","weixin","renren"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api//js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+<!--栏目-->
+<script>
+    var obj = document.getElementsByTagName("h4");
+    for(i=0;i<obj.length;i++)
+    {
+        var str = "0123456789abcdef";
+        var t = "#";
+        for(j=0;j<6;j++)
+        {t = t+ str.charAt(Math.random()*str.length);}
+        obj[i].style.background=t;
+    }
+</script>
+<script src="/js/vue.js" type="text/javascript"></script>
+<script src="/js/life.js" type="text/javascript"></script>
 </body>
 </html>

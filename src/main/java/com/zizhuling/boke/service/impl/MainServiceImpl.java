@@ -4,6 +4,7 @@ import com.zizhuling.boke.dao.ContentDao;
 import com.zizhuling.boke.utils.Constants;
 import com.zizhuling.boke.utils.PageInfo;
 import com.zizhuling.boke.service.MainService;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -78,6 +79,10 @@ public class MainServiceImpl implements MainService{
         PageInfo pageInfo=new PageInfo(map.get("pageNo").toString());
         map.put("pagebegin",pageInfo.getPageBegin());
         map.put("pagesize",pageInfo.getPageSize());
+        String search=map.get("search")==null?"":map.get("search").toString();
+        if(StringUtils.isNotEmpty(search)){
+            map.put("search","%"+search+"%");
+        }
         int rowCount=contentDao.queryLifeCount(map);
         int pageCount;
         //计算总共多少页
@@ -88,10 +93,6 @@ public class MainServiceImpl implements MainService{
         }
         pageInfo.setPageCount(pageCount);
         List<Map<String,Object>> list=contentDao.findLife(map);
-        map.put("news",0);
-        map.put("newslength",6);
-        map.put("rank",0);
-        map.put("ranklength",6);
         List<Map<String,Object>> newsData=contentDao.findLifeNewsData(map);
         List<Map<String,Object>> rankData=contentDao.findLifeRankData(map);
         if(Constants.STRING_ONE.equals(map.get("type"))){
@@ -155,5 +156,22 @@ public class MainServiceImpl implements MainService{
         return pageInfo;
     }
 
-
+    @Override
+    public PageInfo findPhoto(Map<String, Object> map) {
+        PageInfo pageInfo=new PageInfo(map.get("pageNo").toString());
+        map.put("pagebegin",pageInfo.getPageBegin());
+        map.put("pagesize",pageInfo.getPageSize());
+        int rowCount=contentDao.queryFilesCount(map);
+        int pageCount;
+        //计算总共多少页
+        if(rowCount%PageInfo.pageSize==0){
+            pageCount=rowCount/PageInfo.pageSize;
+        }else{
+            pageCount=rowCount/PageInfo.pageSize+1;
+        }
+        pageInfo.setPageCount(pageCount);
+        List<Map<String,Object>> list=contentDao.queryFiles(map);
+        pageInfo.setPageData(list);
+        return pageInfo;
+    }
 }

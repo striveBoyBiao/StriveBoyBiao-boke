@@ -40,4 +40,8 @@ public interface ContentDao {
     Map<String,Object> findLifeUnderData(Map<String,Object> map);
     /**修改阅读量*/
     void updateClickRate(Map<String,Object> map);
+    /**查询图片*/
+    List<Map<String,Object>> queryFiles(Map<String,Object> map);
+    /**查询图片数量*/
+    int queryFilesCount(Map<String,Object> map);
 }

@@ -31,4 +31,9 @@ public interface MainService {
      * @return
      */
     public PageInfo findTags(Map<String,Object> map);
+    /**
+     * 分页查询相册界面数据
+     * @return
+     */
+    public PageInfo findPhoto(Map<String,Object> map);
 }

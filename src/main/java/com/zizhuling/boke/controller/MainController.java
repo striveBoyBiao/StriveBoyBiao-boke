@@ -124,6 +124,10 @@ public class MainController {
         Map<String,Object> map=new HashMap<String,Object>();
         map.put("type","1");
         map.put("pageNo",request.getParameter("pageNo"));
+        map.put("news",0);
+        map.put("newslength",6);
+        map.put("rank",0);
+        map.put("ranklength",6);
         PageInfo list=mainService.findLife(map);
         return list;
     }
@@ -159,7 +163,12 @@ public class MainController {
     public PageInfo findLife(HttpServletRequest request){
         Map<String,Object> map=new HashMap<String,Object>();
         map.put("type","3");
+        map.put("lmlb",request.getParameter("lmlb"));
         map.put("pageNo",request.getParameter("pageNo"));
+        map.put("news",0);
+        map.put("newslength",6);
+        map.put("rank",0);
+        map.put("ranklength",6);
         PageInfo list=mainService.findLife(map);
         return list;
     }
@@ -208,8 +217,13 @@ public class MainController {
     public PageInfo findLearn(HttpServletRequest request){
         Map<String,Object> map=new HashMap<String,Object>();
         map.put("type","5");
+        map.put("lmlb",request.getParameter("lmlb"));
         map.put("pageNo",request.getParameter("pageNo"));
         map.put("search",request.getParameter("search"));
+        map.put("news",0);
+        map.put("newslength",8);
+        map.put("rank",0);
+        map.put("ranklength",8);
         PageInfo list=mainService.findLife(map);
         return list;
     }
@@ -230,6 +244,19 @@ public class MainController {
         model.addAttribute("ondata",pageInfo.getOnData());
         model.addAttribute("underData",pageInfo.getUnderData());
         return "blog/learn_article";
+    }
+
+    /**
+     * 分页查询相册界面数据
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping("/main/findPhoto")
+    public PageInfo findPhoto(HttpServletRequest request){
+        Map<String,Object> map=new HashMap<String,Object>();
+        map.put("pageNo",request.getParameter("pageNo"));
+        PageInfo list=mainService.findPhoto(map);
+        return list;
     }
 
 

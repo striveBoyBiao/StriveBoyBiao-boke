@@ -5,7 +5,7 @@
     <select id="findDoing" parameterType="Map" resultType="org.apache.commons.collections.map.CaseInsensitiveMap">
         select bc.cid,
         bc.content,
-        date_format(bc.gtm_create, '%y-%m-%d') gtmcreate
+        date_format(bc.gtm_create, '%Y-%m-%d') gtmcreate
         from blog_content bc
         where bc.categories='5'
         limit #{pagebegin},#{pagesize}
@@ -29,23 +29,30 @@
         <if test="type==1">and categories in ('10','11','12','13','14','15','16','17','18','19','20','21')</if>
         <if test="type==3">and categories in ('16','17','18','19','20','21')</if>
         <if test="type==5">and categories in ('10','11','12','13','14','15')</if>
+        <if test="lmlb!=null and lmlb!=''">and categories=#{lmlb}</if>
+        <if test="search!=null and search!=''">and title like #{search} </if>
     </select>
     <!--分页查询首页,慢生活,学无止境 界面数据-->
     <select id="findLife" parameterType="Map" resultType="org.apache.commons.collections.map.CaseInsensitiveMap">
         select bc.cid,
         bc.content,
         date_format(bc.gtm_create, '%Y-%m-%d') gtmcreate,
+        date_format(bc.gtm_modified, '%Y-%m-%d') gtmmodified,
         bc.title,
         sd.name typename,
         bc.author,
         bc.introduction,
-        bc.title_picture titlepicture
+        bc.title_picture titlepicture,
+        bc.comments_num commentsnum,
+        bc.reading
         from blog_content bc
         left join sys_dict sd on sd.type='blog_type' and sd.value=bc.categories
         where 1=1
         <if test="type==1">and bc.categories in ('10','11','12','13','14','15','16','17','18','19','20','21') order by bc.gtm_modified</if>
         <if test="type==3">and bc.categories in ('16','17','18','19','20','21')</if>
         <if test="type==5">and bc.categories in ('10','11','12','13','14','15')</if>
+        <if test="lmlb!=null and lmlb!=''">and  bc.categories=#{lmlb}</if>
+        <if test="search!=null and search!=''">and bc.title like #{search} </if>
         limit #{pagebegin},#{pagesize}
     </select>
     <!--查询首页,慢生活,学无止境 最新文章-->
@@ -102,6 +109,7 @@
         select bc.cid,
         bc.content,
         date_format(bc.gtm_create, '%Y-%m-%d') gtmcreate,
+        date_format(bc.gtm_modified, '%Y-%m-%d') gtmmodified,
         bc.title,
         sd.name typename,
         bc.author,
@@ -145,6 +153,20 @@
     <update id="updateClickRate" parameterType="Map">
         update blog_content set reading=reading+1 where cid=#{cid}
     </update>
+    <!--查询相册数量-->
+    <select id="queryFilesCount" parameterType="Map" resultType="int">
+        select count(*)
+        from sys_file
+        where TYPE=0
+    </select>
+    <!--查询相册-->
+    <select id="queryFiles" parameterType="Map" resultType="org.apache.commons.collections.map.CaseInsensitiveMap">
+          SELECT id,type,url,date_format(create_date, '%Y-%m-%d')  createdate
+          FROM  sys_file
+          WHERE TYPE=0
+          order by create_date desc
+          limit #{pagebegin},#{pagesize}
+    </select>
 
 
 </mapper>
