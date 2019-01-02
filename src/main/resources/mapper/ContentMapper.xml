@@ -8,6 +8,7 @@
         date_format(bc.gtm_create, '%Y-%m-%d') gtmcreate
         from blog_content bc
         where bc.categories='5'
+        order by bc.gtm_create DESC
         limit #{pagebegin},#{pagesize}
     </select>
     <!--查询忙里偷闲界面数据数量-->

@@ -1,9 +1,9 @@
 package com.zizhuling.boke.service.impl;
 
+import com.zizhuling.boke.service.MainService;
 import com.zizhuling.boke.dao.ContentDao;
 import com.zizhuling.boke.utils.Constants;
 import com.zizhuling.boke.utils.PageInfo;
-import com.zizhuling.boke.service.MainService;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,7 +23,7 @@ import java.util.Map;
  * To change this template use File | Settings | File Templates.
  */
 @Service
-public class MainServiceImpl implements MainService{
+public class MainServiceImpl implements MainService {
     private static final Logger LOGGER = LoggerFactory.getLogger(MainService.class);
 
     @Autowired

@@ -1,4 +1,5 @@
 package com.zizhuling.boke.utils;
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -7,7 +8,7 @@ import java.util.List;
  * @author igeek
  *
  */
-public class PageInfo<T> {
+public class PageInfo<T> implements Serializable{
 	/**当前页*/
 	private String pageNo;
 	/**每页大小*/
