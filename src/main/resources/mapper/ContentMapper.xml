@@ -49,11 +49,12 @@
         from blog_content bc
         left join sys_dict sd on sd.type='blog_type' and sd.value=bc.categories
         where 1=1
-        <if test="type==1">and bc.categories in ('10','11','12','13','14','15','16','17','18','19','20','21') order by bc.gtm_modified</if>
+        <if test="type==1">and bc.categories in ('10','11','12','13','14','15','16','17','18','19','20','21')</if>
         <if test="type==3">and bc.categories in ('16','17','18','19','20','21')</if>
         <if test="type==5">and bc.categories in ('10','11','12','13','14','15')</if>
         <if test="lmlb!=null and lmlb!=''">and  bc.categories=#{lmlb}</if>
         <if test="search!=null and search!=''">and bc.title like #{search} </if>
+        order by bc.gtm_modified DESC
         limit #{pagebegin},#{pagesize}
     </select>
     <!--查询首页,慢生活,学无止境 最新文章-->

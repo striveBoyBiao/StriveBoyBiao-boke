@@ -30,7 +30,7 @@ header{ width: 1030px; margin:0 auto 10px; overflow: hidden; clear: both; }
 a#topnav_current { color: #000 }*/
 article { width: 1030px; margin:0px auto 20px; }
 
-.topnav{ float:right; width:600px; margin: 30px 0 0 0;text-align:right }
+.topnav{ float:right; width:700px; margin: 30px 0 0 0;text-align:right }
 nav a { position: relative; display: inline-block; font-size: 18px; font-family: "΢���ź�", Arial, Helvetica, sans-serif; }
 nav a:hover { text-decoration: none;color:#CC3; }
 .topnav a { margin: 0 5px; padding: 0 8px; }

@@ -11,6 +11,7 @@ public class Constants {
     public static final String STRING_FIVE="5";
     public static final String STRING_SEX="6";
     public static final String TAGS="tags";
+    public static final String MUSIC="music";
     public static final String INDEX="index";
     public static final String INDEXDETAILS="indexdetails";
     public static final String LIFE="life";

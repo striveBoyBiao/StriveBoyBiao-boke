@@ -127,6 +127,32 @@ public class MainController {
         return "blog/tags";
     }
 
+    /**
+     * 跳到音乐
+     * @return
+     */
+    @RequestMapping("/music")
+    public String music(HttpServletRequest request,Model model) {
+        PageInfo pageInfo=null;
+        String key= Constants.STRING_ONE+Constants.MUSIC;
+        ValueOperations<String,PageInfo> operations= redisTemplate.opsForValue();
+        /*缓存存在*/
+        boolean hasKey = redisTemplate.hasKey(key);
+        if(hasKey){
+            pageInfo=operations.get(key);
+        }else{
+            Map<String,Object> map=new HashMap<String,Object>();
+            map.put("type",Constants.STRING_ONE);
+            pageInfo=mainService.findTags(map);
+            /*插入缓存*/
+            operations.set(key, pageInfo, 120, TimeUnit.SECONDS);
+        }
+        model.addAttribute("newsdata",pageInfo.getNewsData());
+        model.addAttribute("rankdata",pageInfo.getRankData());
+        model.addAttribute("recommenddata",pageInfo.getRecommendData());
+        return "blog/music";
+    }
+
 
 
 
