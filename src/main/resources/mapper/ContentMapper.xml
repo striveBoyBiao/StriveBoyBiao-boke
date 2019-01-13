@@ -54,7 +54,7 @@
         <if test="type==5">and bc.categories in ('10','11','12','13','14','15')</if>
         <if test="lmlb!=null and lmlb!=''">and  bc.categories=#{lmlb}</if>
         <if test="search!=null and search!=''">and bc.title like #{search} </if>
-        order by bc.gtm_modified DESC
+        order by bc.gtm_create DESC
         limit #{pagebegin},#{pagesize}
     </select>
     <!--查询首页,慢生活,学无止境 最新文章-->
