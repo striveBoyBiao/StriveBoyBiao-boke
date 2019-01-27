@@ -1,19 +1,20 @@
 /**
  * Created by hebiao on 2018/12/28.
  */
+/**vue*/
 var app=new Vue({
-    el:'#app-photo',
+    el:'#viewer',
     data:{
         dataList:''
     },
     methods:{
-        getDataList:function () {
+        getDataList:function (pageNo) {
             $.ajax({
                 url:"/main/findPhoto.do" ,
                 type:"post",
                 dataType:"json" ,
                 data:{
-                    "pageNo":"1",
+                    "pageNo":pageNo,
                 },
                 success:function(data){
                     app.dataList=data.pageData;
@@ -22,20 +23,21 @@ var app=new Vue({
                     }else{
                         $("#footer").html('');
                     }
+                    app.$nextTick(function(){
+                        /**图片特效*/
+                        $('#viewer').viewer();
+                    })
                 }
-            })
+            });
         }
 
     }
-
 })
-
 
 /**初始化查询慢生活界面数据*/
 $("document").ready(function(){
-            app.getDataList();
+            app.getDataList("1");
 })
-
 
 
 /**-------------------------------------------动态创建 分页------------------------------------------------------------*/
@@ -113,27 +115,5 @@ function zhongjianye(pageNo){
 /** 公共代码 */
 function gongzong(pageNo){
     /**查询慢生活界面数据*/
-    $.ajax({
-        url:"/main/findPhoto.do" ,
-        type:"post",
-        data:{
-            "pageNo":pageNo
-        },
-        datatype:"json",
-        success:function(data){
-            if(data){
-                update(data);
-            }
-        }
-    });
-}
-
-/**获取慢生活界面json数据*/
-function update(data){
-    app.dataList=data.pageData;
-    if(data.pageCount>1){
-        pageInfo(data.pageNo,data.pageCount);
-    }else{
-        $("#footer").html('');
-    }
+    app.getDataList(pageNo);
 }
