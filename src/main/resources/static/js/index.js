@@ -3,6 +3,7 @@
  */
 /**初始化查询慢生活界面数据*/
 $("document").ready(function(){
+    $('#xf').show();
     $.ajax({
         url:"/main/findIndex.do" ,
         type:"post",
@@ -45,6 +46,8 @@ $("document").ready(function(){
             $("#rankData").html(rankHtml);
             $("#newsData").html(newsHtml);
             $("#nominateData").html(recommendHtml);
+            /**数据加载特效*/
+            $('#xf').hide();
         }
     })
 })

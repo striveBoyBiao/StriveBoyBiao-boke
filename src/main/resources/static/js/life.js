@@ -8,13 +8,14 @@ var app=new Vue({
         newsList:''
     },
     methods:{
-        getDataList:function () {
+        getDataList:function (pageNo) {
+            $('#xf').show();
             $.ajax({
                 url:"/main/findLife.do" ,
                 type:"post",
                 dataType:"json" ,
                 data:{
-                    "pageNo":"1",
+                    "pageNo":pageNo,
                 },
                 success:function(data){
                     app.dataList=data.pageData;
@@ -24,11 +25,16 @@ var app=new Vue({
                     }else{
                         $("#footer").html('');
                     }
+                    app.$nextTick(function(){
+                        /**数据加载特效*/
+                        $('#xf').hide();
+                    })
                 }
             })
         },
         /**点击慢生活--栏目导航--查询相对应数据*/
         queryLanMu:function (lmlb) {
+            $('#xf').show();
             $.ajax({
                 url:"/main/findLife.do" ,
                 type:"post",
@@ -45,6 +51,10 @@ var app=new Vue({
                     }else{
                         $("#footer").html('');
                     }
+                    app.$nextTick(function(){
+                        /**数据加载特效*/
+                        $('#xf').hide();
+                    })
                 }
             })
         },
@@ -60,7 +70,7 @@ var app=new Vue({
 
 /**初始化查询慢生活界面数据*/
 $("document").ready(function(){
-            app.getDataList();
+            app.getDataList("1");
 })
 
 
@@ -140,28 +150,5 @@ function zhongjianye(pageNo){
 /** 公共代码 */
 function gongzong(pageNo){
     /**查询慢生活界面数据*/
-    $.ajax({
-        url:"/main/findLife.do" ,
-        type:"post",
-        data:{
-            "pageNo":pageNo
-        },
-        datatype:"json",
-        success:function(data){
-            if(data){
-                update(data);
-            }
-        }
-    });
-}
-
-/**获取慢生活界面json数据*/
-function update(data){
-    app.dataList=data.pageData;
-    app.newsList=data.newsData;
-    if(data.pageCount>1){
-        pageInfo(data.pageNo,data.pageCount);
-    }else{
-        $("#footer").html('');
-    }
+   app.getDataList(pageNo);
 }

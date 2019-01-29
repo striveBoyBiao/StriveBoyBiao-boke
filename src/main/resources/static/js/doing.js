@@ -12,13 +12,13 @@ var app=new Vue({
         dataList:'',
     },
     methods:{
-        getDataList:function () {
+        getDataList:function (pageNo) {
             $.ajax({
                 url:"/main/findDoing.do" ,
                 type:"post",
                 dataType:"json" ,
                 data:{
-                    "pageNo":"1"
+                    "pageNo":pageNo
                 },
                 success:function(data){
                    app.dataList=data.pageData;
@@ -37,7 +37,7 @@ var app=new Vue({
 
 /**初始化查询碎言碎语界面数据*/
 $("document").ready(function(){
-    app.getDataList();
+    app.getDataList("1");
 
 })
 
@@ -118,30 +118,7 @@ function zhongjianye(pageNo){
 /** 公共代码 */
 function gongzong(pageNo){
     /**查询碎言碎语界面*/
-    $.ajax({
-        url:"/main/findDoing.do" ,
-        type:"post",
-        data:{
-            "pageNo":pageNo
-        },
-        datatype:"json",
-        success:function(data){
-            if(data){
-                update2(data);
-            }
-        }
-    });
-}
-
-
-/**获取碎言碎语界面json数据*/
-function update2(data){
-    app.dataList=data.pageData;
-    if(data.pageCount>1){
-        pageInfo(data.pageNo,data.pageCount);
-    }else{
-        $("#footer").html('');
-    }
+  app.getDataList(pageNo);
 }
 
 
