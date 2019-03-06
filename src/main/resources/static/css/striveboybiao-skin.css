@@ -7,7 +7,7 @@ body{
 }
 .baidu{
     width:100%;/*宽度*/
-    height:200px;/*高度 像素*/
+    height:260px;/*高度 像素*/
     background:rgba(0,0,0,.6);/*rgba CSS3 #66ffff 0-255 红色 绿色 蓝色*/
     position:absolute;/*绝对定位*/
     /*border:1px solid #ddd;边框*/
