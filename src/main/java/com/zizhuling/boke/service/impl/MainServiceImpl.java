@@ -96,8 +96,11 @@ public class MainServiceImpl implements MainService {
         List<Map<String,Object>> newsData=contentDao.findLifeNewsData(map);
         List<Map<String,Object>> rankData=contentDao.findLifeRankData(map);
         if(Constants.STRING_ONE.equals(map.get("type"))){
-            /*首页查询推荐文章*/
+            /*首页查询站长推荐文章*/
             List<Map<String,Object>> recommendData=contentDao.findRecommendData(map);
+            /*首页查询图文推荐文章*/
+            List<Map<String,Object>> readingData=contentDao.findReadingData(map);
+            pageInfo.setReadingData(readingData);
             pageInfo.setRecommendData(recommendData);
         }
         pageInfo.setPageData(list);

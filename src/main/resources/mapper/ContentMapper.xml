@@ -69,7 +69,7 @@
         order by bc.gtm_modified desc
         limit #{news},#{newslength}
     </select>
-    <!--查询首页,慢生活,学无止境 排行榜-->
+    <!--查询首页,慢生活,学无止境 评论排行榜-->
     <select id="findLifeRankData" parameterType="Map" resultType="org.apache.commons.collections.map.CaseInsensitiveMap">
         select bc.cid,
         bc.title
@@ -93,7 +93,7 @@
         and bc.content like concat('%',#{gjzc},'%')
         limit #{relate},#{relatelength}
     </select>
-    <!--查询首页,标签，推荐文章-->
+    <!--查询首页,标签，站长推荐文章-->
     <select id="findRecommendData" parameterType="Map" resultType="org.apache.commons.collections.map.CaseInsensitiveMap">
         select bc.cid,
         bc.title
@@ -103,6 +103,22 @@
         <if test="type==3">and bc.categories in ('16','17','18','19','20','21')</if>
         <if test="type==5">and bc.categories in ('10','11','12','13','14','15')</if>
         order by bc.recommend desc
+        limit #{news},#{newslength}
+    </select>
+    <!--查询首页,标签，站长推荐文章-->
+    <select id="findReadingData" parameterType="Map" resultType="org.apache.commons.collections.map.CaseInsensitiveMap">
+        select bc.cid,
+                date_format(bc.gtm_create, '%Y-%m-%d') gtmcreate,
+                sd.name typename,
+                bc.title_picture titlepicture,
+                bc.title
+        from blog_content bc
+        left join sys_dict sd on sd.type='blog_type' and sd.value=bc.categories
+        where 1=1
+        <if test="type==1">and bc.categories in ('10','11','12','13','14','15','16','17','18','19','20','21')</if>
+        <if test="type==3">and bc.categories in ('16','17','18','19','20','21')</if>
+        <if test="type==5">and bc.categories in ('10','11','12','13','14','15')</if>
+        order by bc.reading desc
         limit #{news},#{newslength}
     </select>
 

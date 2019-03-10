@@ -29,12 +29,14 @@ public class PageInfo<T> implements Serializable{
 	private String state;
 	/**最新文章*/
 	private List<T> newsData;
-	/**排行榜*/
+	/**评论排行*/
 	private List<T> rankData;
 	/**相关文档*/
 	private List<T> relateData;
-	/**推荐文档*/
+	/**推荐排行*/
 	private List<T> recommendData;
+	/**阅读排行*/
+	private List<T> readingData;
 	/**上一篇*/
 	private T onData;
 	/**下一篇*/
@@ -169,5 +171,13 @@ public class PageInfo<T> implements Serializable{
 
 	public void setRelateData(List<T> relateData) {
 		this.relateData = relateData;
+	}
+
+	public List<T> getReadingData() {
+		return readingData;
+	}
+
+	public void setReadingData(List<T> readingData) {
+		this.readingData = readingData;
 	}
 }

@@ -26,12 +26,14 @@ public interface ContentDao {
     int queryLifeCount(Map<String,Object> map);
     /**查询最新文章*/
     List<Map<String,Object>> findLifeNewsData(Map<String,Object> map);
-    /**查询最新排行*/
+    /**查询评论排行*/
     List<Map<String,Object>> findLifeRankData(Map<String,Object> map);
     /**查询相关文章*/
     List<Map<String,Object>> findLifeRelateData(Map<String,Object> map);
-    /**查询推荐文章*/
+    /**查询站长荐文章*/
     List<Map<String,Object>> findRecommendData(Map<String,Object> map);
+    /**查询图文推荐文章*/
+    List<Map<String,Object>> findReadingData(Map<String,Object> map);
 
 
     /**查询上一篇文章*/
