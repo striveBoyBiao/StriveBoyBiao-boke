@@ -7,7 +7,7 @@
         bc.content,
         date_format(bc.gtm_create, '%Y-%m-%d') gtmcreate
         from blog_content bc
-        where bc.categories='5'
+        where bc.categories='5' and bc.status=1
         order by bc.gtm_create DESC
         limit #{pagebegin},#{pagesize}
     </select>
@@ -15,7 +15,7 @@
     <select id="queryCount" parameterType="Map" resultType="int">
         select count(*)
         from blog_content bc
-        where bc.categories='5'
+        where bc.categories='5' and bc.status=1
     </select>
 
 
@@ -26,7 +26,7 @@
     <select id="queryLifeCount" parameterType="Map" resultType="int">
         select count(*)
         from blog_content
-        where 1=1
+        where 1=1 and  status=1
         <if test="type==1">and categories in ('10','11','12','13','14','15','16','17','18','19','20','21')</if>
         <if test="type==3">and categories in ('16','17','18','19','20','21')</if>
         <if test="type==5">and categories in ('10','11','12','13','14','15')</if>
@@ -48,7 +48,7 @@
         bc.reading
         from blog_content bc
         left join sys_dict sd on sd.type='blog_type' and sd.value=bc.categories
-        where 1=1
+        where 1=1 and  bc.status=1
         <if test="type==1">and bc.categories in ('10','11','12','13','14','15','16','17','18','19','20','21')</if>
         <if test="type==3">and bc.categories in ('16','17','18','19','20','21')</if>
         <if test="type==5">and bc.categories in ('10','11','12','13','14','15')</if>
@@ -62,7 +62,7 @@
         select bc.cid,
         bc.title
         from blog_content bc
-        where 1=1
+        where 1=1 and bc.status=1
         <if test="type==1">and bc.categories in ('10','11','12','13','14','15','16','17','18','19','20','21')</if>
         <if test="type==3">and bc.categories in ('16','17','18','19','20','21')</if>
         <if test="type==5">and bc.categories in ('10','11','12','13','14','15')</if>
@@ -74,7 +74,7 @@
         select bc.cid,
         bc.title
         from blog_content bc
-        where 1=1
+        where 1=1 and bc.status=1
         <if test="type==1">and bc.categories in ('10','11','12','13','14','15','16','17','18','19','20','21')</if>
         <if test="type==3">and bc.categories in ('16','17','18','19','20','21')</if>
         <if test="type==5">and bc.categories in ('10','11','12','13','14','15')</if>
@@ -86,7 +86,7 @@
         select bc.cid,
         bc.title
         from blog_content bc
-        where 1=1
+        where 1=1 and bc.status=1
         <if test="type==1">and bc.categories in ('10','11','12','13','14','15','16','17','18','19','20','21')</if>
         <if test="type==3">and bc.categories in ('16','17','18','19','20','21')</if>
         <if test="type==5">and bc.categories in ('10','11','12','13','14','15')</if>
@@ -98,7 +98,7 @@
         select bc.cid,
         bc.title
         from blog_content bc
-        where 1=1
+        where 1=1 and bc.status=1
         <if test="type==1">and bc.categories in ('10','11','12','13','14','15','16','17','18','19','20','21')</if>
         <if test="type==3">and bc.categories in ('16','17','18','19','20','21')</if>
         <if test="type==5">and bc.categories in ('10','11','12','13','14','15')</if>
@@ -114,7 +114,7 @@
                 bc.title
         from blog_content bc
         left join sys_dict sd on sd.type='blog_type' and sd.value=bc.categories
-        where 1=1
+        where 1=1 and bc.status=1
         <if test="type==1">and bc.categories in ('10','11','12','13','14','15','16','17','18','19','20','21')</if>
         <if test="type==3">and bc.categories in ('16','17','18','19','20','21')</if>
         <if test="type==5">and bc.categories in ('10','11','12','13','14','15')</if>
@@ -136,7 +136,7 @@
         bc.categories
         from blog_content bc
         left join sys_dict sd on sd.type='blog_type' and sd.value=bc.categories
-        where 1=1
+        where 1=1 and bc.status=1
         <if test="cid!=null and cid!=''">and bc.cid=#{cid}</if>
         <if test="type==1">and bc.categories in ('10','11','12','13','14','15','16','17','18','19','20','21')</if>
         <if test="type==3">and bc.categories in ('16','17','18','19','20','21')</if>
@@ -150,7 +150,7 @@
         select bc.cid,
         bc.title
         from blog_content bc
-        where 1=1
+        where 1=1 and bc.status=1
         <if test="type==1">and bc.categories in ('10','11','12','13','14','15','16','17','18','19','20','21')</if>
         <if test="type==3">and bc.categories in ('16','17','18','19','20','21')</if>
         <if test="type==5">and bc.categories in ('10','11','12','13','14','15')</if>
@@ -161,7 +161,7 @@
         select bc.cid,
         bc.title
         from blog_content bc
-        where 1=1
+        where 1=1 and bc.status=1
         <if test="type==1">and bc.categories in ('10','11','12','13','14','15','16','17','18','19','20','21')</if>
         <if test="type==3">and bc.categories in ('16','17','18','19','20','21')</if>
         <if test="type==5">and bc.categories in ('10','11','12','13','14','15')</if>
