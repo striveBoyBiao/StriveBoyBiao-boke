@@ -15,7 +15,7 @@ a:hover { text-decoration: none; }
 .l_box { width: 670px; }
 .r_box { width: 300px; }
 .box{ width:1030px; margin:auto; overflow:hidden}
-/* ͷ����Ϣ */
+
 header{ width: 1030px; margin:0 auto 10px; overflow: hidden; clear: both; }
 #logo{
 	width:260px;
@@ -26,7 +26,7 @@ header{ width: 1030px; margin:0 auto 10px; overflow: hidden; clear: both; }
 #topnav a { display: inline-block; font-size: 18px; font-family: "Microsoft Yahei", Arial, Helvetica, sans-serif; padding: 0 20px; }
 #topnav a:hover { background: #fff; color: #000; }
 #topnav a { color: #FFF }
-#topnav_current { background: #F3FF41; }����ѡ����ɫ 
+#topnav_current { background: #F3FF41; }
 a#topnav_current { color: #000 }*/
 article { width: 1030px; margin:0px auto 20px; }
 
@@ -46,15 +46,15 @@ nav a:hover { text-decoration: none;color:#CC3; }
 footer { background: #333; width: 100%; clear: both; text-align: center; height:35px; }
 .ft-copyright { color: #fff; line-height: 35px; }
 .ft-list { background: url(../images/img/ft-wx-s.png) no-repeat right; height: 100px }
-/*���ض���*/
-*html { background-image: url(about:blank); background-attachment: fixed; }/*���IE6�¹�������������*/
+
+*html { background-image: url(about:blank); background-attachment: fixed; }/*IE6*/
 #tbox { width: 54px; float: right; position: fixed; right: 50px; bottom: 15px; _position: absolute; _bottom: auto; _top:expression(eval(document.documentElement.scrollTop+document.documentElement.clientHeight-this.offsetHeight-(parseInt(this.currentStyle.marginTop, 10)||0)-(parseInt(this.currentStyle.marginBottom, 10)||0)));
-_margin-bottom: 15px; }/*���IE6�²����� position:fixed ������*/
+_margin-bottom: 15px; }/*IE6position:fixed ������*/
 #togbook, #gotop { width: 54px; height: 56px; display: block; background: url(../images/img/icons.png) no-repeat #111; box-shadow: 0px 1px 0px rgba(255,255,255,.1), inset 0px 1px 1px rgba(0,0,0,.7); border-radius: 6px; }
 #togbook { margin: 5px 0; background-position: 10px -36px; }
 #gotop { background-position: 12px 10px; }
 #togbook:hover, #gotop:hover { opacity: 0.5 }
-/*��ǩ��*/
+
 .cloud { width: 100%; clear: both; overflow: hidden; margin:0 0 25px 0; }
 .cloud1{ margin:0 0 20px 0;}
 .cloud h3 { line-height: 40px; color: #38485A; font-size: 18px; border-bottom: 1px solid #E6E6E6; height: 40px; }
@@ -84,10 +84,10 @@ _margin-bottom: 15px; }/*���IE6�²����� position:fixed ���
 .bd-news ul li { border-bottom: solid 1px #EAEAEA; line-height: 30px; height: 30px; overflow: hidden; font-size: 14px; padding: 10px 0 0 30px; }
 .bd-news ul li a { display: block; }
 .bd-news ul li a:hover { color: #000; }
-.bd-news ul li:hover { border-bottom: #000 1px solid; }/* ������ȥ��Ч�� */
+.bd-news ul li:hover { border-bottom: #000 1px solid; }
 
 
-/*share����*/
+/*share*/
 .share h2{ background:url(../images/img/libg.png) 0 -370px no-repeat; height:30px; line-height:30px;border-bottom:#333 2px solid ; overflow:hidden}
 .share p{ margin:10px; clear:both}
 

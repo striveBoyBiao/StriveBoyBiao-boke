@@ -11,12 +11,14 @@ var app=new Vue({
     methods:{
         getDataList:function (pageNo) {
             $('#xf').show();
+            var str=$("#bdcs-search-form-input").val();
             $.ajax({
                 url:"/main/findLearn.do" ,
                 type:"post",
                 dataType:"json" ,
                 data:{
                     "pageNo":pageNo,
+                    "search":str
                 },
                 success:function(data){
                     app.dataList=data.pageData;
@@ -37,13 +39,15 @@ var app=new Vue({
         /**点击慢生活--栏目导航--查询相对应数据*/
         queryLanMu:function (lmlb) {
             $('#xf').show();
+            var str=$("#bdcs-search-form-input").val();
             $.ajax({
                 url:"/main/findLearn.do" ,
                 type:"post",
                 dataType:"json" ,
                 data:{
                     "pageNo":"1",
-                    "lmlb":lmlb
+                    "lmlb":lmlb,
+                    "search":str
                 },
                 success:function(data){
                     app.dataList=data.pageData;
